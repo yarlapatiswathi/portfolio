@@ -25,13 +25,12 @@ def database_csv(data):
 
 @app.route('/submit_form', methods=['POST', 'GET'])
 def login():
-
 	if request.method == 'POST':
-		try: 
+		try:
 			data=request.form.to_dict()
 			database_csv(data)
 			return render_template('thankyou.html')
- 		except:
- 			return 'did not save to database'
- 	else:
- 		return 'something went wrong.Try again!'		
+		except:
+			return 'data didnt get saved to database'			
+	else:
+		return 'something went wrong'		
